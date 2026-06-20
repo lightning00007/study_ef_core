@@ -1,0 +1,6 @@
+@SShop.API_HostAddress = http://localhost:5213
+
+GET {{SShop.API_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
