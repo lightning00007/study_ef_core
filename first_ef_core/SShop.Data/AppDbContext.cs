@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using SShop.Domain;
 using System;
 using System.Collections.Generic;
 using System.Text;
@@ -11,5 +12,9 @@ namespace SShop.Data
         {
 
         }
+
+        public DbSet<Product> Products { get; set; }
+
+        public DbSet<Specification> Specifications { get; set; }
     }
 }
