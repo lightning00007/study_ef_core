@@ -13,6 +13,13 @@ builder.Services.AddHttpClient();
 builder.Services.AddDbContext<AppDbContext>(options => options.UseSqlite(builder.Configuration.GetConnectionString("DefaultConnection")));
 var app = builder.Build();
 
+using (var scope = app.Services.CreateScope())
+{
+    var dbContext = scope.ServiceProvider.GetRequiredService<AppDbContext>();
+    dbContext.Database.EnsureCreated();
+    DatabaseSeeder.Seed(dbContext);
+}
+
 //go to https://localhost:7067/WeatherForecast to see the result
 
 // Configure the HTTP request pipeline.
